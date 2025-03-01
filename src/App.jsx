@@ -15,6 +15,7 @@ function App() {
   const [isoutOfBody, setIsoutOfBody] = useState(false);
   const [isStart, setIsStart] = useState(true);
   const [infoMessage, setInfoMessage] = useState('');
+  const [selectors, setSelectors] = useState([]);
 
   useEffect(() => {
     const handleHover = (e) => {
@@ -45,9 +46,13 @@ function App() {
         
         // copy to clipboard
         setIsStart(false);
-        navigator.clipboard.writeText(hoverSelector)
+        const newSelectors = [...selectors, hoverSelector];
+        setSelectors(newSelectors);
+        const allSelectors = newSelectors.join('> ');
+
+        navigator.clipboard.writeText(allSelectors)
         .then(() => {
-          setInfoMessage(`Copied Selector: ${hoverSelector}`)
+            setInfoMessage(`Copied Selector: ${allSelectors}`)
         })
         .catch(err => {
           console.error("Failed to copy text: ", err);
@@ -67,7 +72,7 @@ function App() {
       document.removeEventListener("mouseover", handleHover, false);
       document.removeEventListener("click", handleClick, true);
     };
-  }, [isStart, hoverSelector]);
+  }, [isStart, hoverSelector, selectors]);
 
   return (
     <div>

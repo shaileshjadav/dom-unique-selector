@@ -1,15 +1,16 @@
-import unique from 'unique-selector';
+import unique from '../lib/unique-selector';
 
  //get uniqe handler
  const getSelector = (domElement) => {
     const options = {
-        selectorTypes: ['ID', 'Class', 'Tag', 'NthChild', 'Attributes'],
+        selectorTypes: ['Class', 'Tag', 'NthChild', 'Attributes'],
         excludeRegex: RegExp('body'),
+        group:true,
     };
 
     //addition check for selector
     const selector = unique(domElement, options);
-    const isNotBodyTag = document.querySelector(selector).tagName !== 'BODY';
+    const isNotBodyTag = document.querySelector(selector)?.tagName !== 'BODY';
     const rootContainer = document
         .querySelector('#react-app'); //root
 
