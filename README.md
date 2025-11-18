@@ -1,6 +1,10 @@
 # dom-unique-selector
 This is a chrome extension built using React.js which help to find unique css selector for any webpage.
 
+## Demo
+https://github.com/user-attachments/assets/3de5ad5c-b60a-4ac7-8cba-b246188aa098
+
+
 ## Installation:
 ### Clone the Repository
 ```
@@ -32,14 +36,11 @@ npm run build
 
 The extension will now be installed and visible in the extensions bar with name `dom-unique-selector`!
 
-## Demo
 
 
-## How to 
+## Usage
 
-https://github.com/user-attachments/assets/3de5ad5c-b60a-4ac7-8cba-b246188aa098
 
-use
 - Click on the extension icon in the Chrome toolbar and select `dom-unique-selector`.
 - Hover over elements on the webpage to automatically display their unique selector.
 - Clicking on a selected element copies its unique selector to the clipboard, displays a confirmation message, and shows a `Continue` button.
